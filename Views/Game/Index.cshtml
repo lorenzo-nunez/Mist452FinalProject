@@ -1,0 +1,45 @@
+﻿@model List<Game>
+
+        <h1> Game List </h1>
+
+
+        <div class="pt-2 pb-2">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                       <th>Game</th>
+                       <th>Category Description</th>
+                    </tr>
+                </thead>
+               <tbody>
+                    @foreach (var eachGame in Model)
+                   {
+                      <tr>
+                            <td>@eachGame.gameDate</td>
+                            <td>@eachGame.opponent</td>
+                            <td>@eachGame.score</td>
+                            
+
+                         <td>
+                             <a asp-controller="Game" asp-action="Stats" asp-route-id="@eachGame.GameID">Stats</a>
+                             <a asp-controller="Game" asp-action="ViewFilm" asp-route-id="@eachGame.GameID">View Film</a>
+                             <a asp-controller="Game" asp-action="Delete" asp-route-id="@eachGame.GameID">Delete</a>
+                             <a asp-controller="Game" asp-action="Edit" asp-route-id="@eachGame.GameID">Edit</a>
+                         </td>
+                      </tr>
+
+                   }
+
+                </tbody>
+             </table>
+
+        </div>
+
+
+        <div>
+            <div class="col-6">
+                <div class="col-6">
+                     <a asp-controller="Game" asp-action="Create" class="btn btn-primary">Enter New Game</a>
+                 </div>
+             </div>
+        </div>
