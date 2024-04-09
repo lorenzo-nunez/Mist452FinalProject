@@ -1,0 +1,51 @@
+﻿@model Mist452FinalProject.Models.Survey
+
+@{
+    ViewData["Title"] = "Delete Survey";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">@ViewData["Title"]]</h2>
+    <p class="lead">Are you sure you want to delete this survey?</p>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Survey Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Participant Name:</dt>
+                <dd class="col-sm-8">@Model.ParticipantName</dd>
+
+                <dt class="col-sm-4">Email:</dt>
+                <dd class="col-sm-8">@Model.Email</dd>
+
+                <dt class="col-sm-4">Age:</dt>
+                <dd class="col-sm-8">@Model.Age</dd>
+
+                <dt class="col-sm-4">Team Satisfaction:</dt>
+                <dd class="col-sm-8">@Model.TeamSatisfaction.ToString()</dd>
+
+                <dt class="col-sm-4">Favorite Player:</dt>
+                <dd class="col-sm-8">@Model.FavoritePlayer</dd>
+
+                <dt class="col-sm-4">Least Favorite Player:</dt>
+                <dd class="col-sm-8">@Model.LeastFavoritePlayer</dd>
+
+                <dt class="col-sm-4">Favorite Match:</dt>
+                <dd class="col-sm-8">@Model.FavoriteMatch</dd>
+
+                <dt class="col-sm-4">Suggestions for Improvement:</dt>
+                <dd class="col-sm-8">@Model.SuggestionsForImprovement</dd>
+
+                <dt class="col-sm-4">Interested in Volunteering:</dt>
+                <dd class="col-sm-8">@Model.IsInterestedInVolunteering</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.SurveyId" method="post" class="mt-4">
+        <input type="hidden" asp-for="SurveyId" />
+        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
