@@ -10,7 +10,7 @@
         public int Age { get; set; }
 
         // Survey Questions
-        public int TeamSatisfaction { get; set; } // e.g., 1 to 5 rating
+        public TeamSatisfaction TeamSatisfaction { get; set; } // Changed to enum type
         public string FavoritePlayer { get; set; }
         public string LeastFavoritePlayer { get; set; }
         public string FavoriteMatch { get; set; } // Could be a text input or a selection if you have a list of matches
@@ -22,4 +22,14 @@
         // Additional properties can be added here based on the survey needs
     }
 
+    // Define the TeamSatisfaction enumeration
+    public enum TeamSatisfaction
+    {
+        VeryDissatisfied = 1,
+        Dissatisfied = 2,
+        Neutral = 3,
+        Satisfied = 4,
+        VerySatisfied = 5
+    }
 }
+

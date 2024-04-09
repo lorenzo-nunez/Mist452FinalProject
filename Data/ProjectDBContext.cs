@@ -23,6 +23,7 @@ namespace Mist452FinalProject.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Survey>().HasData(
                 new Survey
                 {
@@ -30,7 +31,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Alex Smith",
                     Email = "alex.smith@example.com",
                     Age = 30,
-                    TeamSatisfaction = 5,
+                    TeamSatisfaction = TeamSatisfaction.VerySatisfied, // Use enum value
                     FavoritePlayer = "Player A",
                     LeastFavoritePlayer = "Player B",
                     FavoriteMatch = "Match 1",
@@ -43,7 +44,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Jamie Doe",
                     Email = "jamie.doe@example.com",
                     Age = 25,
-                    TeamSatisfaction = 4,
+                    TeamSatisfaction = TeamSatisfaction.Satisfied, // Use enum value
                     FavoritePlayer = "Player C",
                     LeastFavoritePlayer = "Player D",
                     FavoriteMatch = "Match 3",
@@ -56,7 +57,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Chris Lee",
                     Email = "chris.lee@example.com",
                     Age = 28,
-                    TeamSatisfaction = 3,
+                    TeamSatisfaction = TeamSatisfaction.Neutral, // Use enum value
                     FavoritePlayer = "Player E",
                     LeastFavoritePlayer = "Player F",
                     FavoriteMatch = "Match 5",
@@ -64,8 +65,8 @@ namespace Mist452FinalProject.Data
                     IsInterestedInVolunteering = true
                 }
             );
+        }
 
-            // Configure other entities
-        } }
 
+    }
 }
