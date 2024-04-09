@@ -14,8 +14,10 @@ namespace Mist452FinalProject.Controllers
         }
         public IActionResult Index()
         {
+            var listOfGames = _dbContext.Games.ToList();
 
-            return View();
+
+            return View(listOfGames);
         }
     }
 }

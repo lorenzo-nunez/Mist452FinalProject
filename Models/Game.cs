@@ -7,6 +7,7 @@ namespace Mist452FinalProject.Models
         public int GameID { get; set; }
 
         [DisplayName("Game Date: ")]
+        public string gameDate { get; set; }
 
         public string opponent { get; set; }
 
@@ -17,6 +18,6 @@ namespace Mist452FinalProject.Models
         public int shotsStat { get; set; }
         public int SavesStat { get; set; }
         public int foulsStat { get; set; }
-        public int filmURL { get; set; }
+        public string filmURL { get; set; }
     }
 }
