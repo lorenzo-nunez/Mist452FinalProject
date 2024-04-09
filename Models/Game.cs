@@ -18,6 +18,7 @@ namespace Mist452FinalProject.Models
         public int shotsStat { get; set; }
         public int SavesStat { get; set; }
         public int foulsStat { get; set; }
+        [DisplayName("Game Film: ")]
         public string filmURL { get; set; }
     }
 }

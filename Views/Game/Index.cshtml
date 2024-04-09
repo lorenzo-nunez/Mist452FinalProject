@@ -18,10 +18,12 @@
                             <td>@eachGame.gameDate</td>
                             <td>@eachGame.opponent</td>
                             <td>@eachGame.score</td>
+                            <td>@eachGame.posessionStat</td>
+                            <td>@eachGame.shotsStat</td>
+                            <td>@eachGame.SavesStat</td>
+                            <td>@eachGame.foulsStat</td>
                             
-
                          <td>
-                             <a asp-controller="Game" asp-action="Stats" asp-route-id="@eachGame.GameID">Stats</a>
                              <a asp-controller="Game" asp-action="ViewFilm" asp-route-id="@eachGame.GameID">View Film</a>
                              <a asp-controller="Game" asp-action="Delete" asp-route-id="@eachGame.GameID">Delete</a>
                              <a asp-controller="Game" asp-action="Edit" asp-route-id="@eachGame.GameID">Edit</a>

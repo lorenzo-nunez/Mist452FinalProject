@@ -1,0 +1,67 @@
+﻿@model Game
+
+<h1>Enter New Game</h1>
+
+<div class=" border col-md-10">
+    <form asp-action="Create">
+        <div class="form-group m-4">
+            <label asp-for="gameDate" class="control-label"></label>
+            <input asp-for="gameDate" class="form-control" />
+            <span asp-validation-for="gameDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="opponent" class="control-label"></label>
+            <input asp-for="opponent" class="form-control" />
+            <span asp-validation-for="opponent" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="score" class="control-label"></label>
+            <input asp-for="score" class="form-control" />
+            <span asp-validation-for="score" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="posessionStat" class="control-label"></label>
+            <input asp-for="posessionStat" class="form-control" />
+            <span asp-validation-for="posessionStat" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="shotsStat" class="control-label"></label>
+            <input asp-for="shotsStat" class="form-control" />
+            <span asp-validation-for="shotsStat" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="SavesStat" class="control-label"></label>
+            <input asp-for="SavesStat" class="form-control" />
+            <span asp-validation-for="SavesStat" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="foulsStat" class="control-label"></label>
+            <input asp-for="foulsStat" class="form-control" />
+            <span asp-validation-for="foulsStat" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="filmURL" class="control-label"></label>
+            <input asp-for="filmURL" class="form-control" />
+            <span asp-validation-for="filmURL" class="text-danger"></span>
+        </div>
+
+        <div class="form-group m-4">
+            <input type="Submit" value="Add New Game" class="form-control btn btn-primary" />
+        </div>
+    </form>
+
+    @section Scripts {
+        @{
+            <partial name="_ValidationScriptsPartial" />
+        }
+    }
+
+
+</div>
