@@ -20,4 +20,19 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Coach\Controllers\" />
+    <Folder Include="Areas\Coach\Data\" />
+    <Folder Include="Areas\Coach\Models\" />
+    <Folder Include="Areas\Coach\Views\" />
+    <Folder Include="Areas\Player\Controllers\" />
+    <Folder Include="Areas\Player\Data\" />
+    <Folder Include="Areas\Player\Models\" />
+    <Folder Include="Areas\Player\Views\" />
+    <Folder Include="Areas\SupportStaff\Controllers\" />
+    <Folder Include="Areas\SupportStaff\Data\" />
+    <Folder Include="Areas\SupportStaff\Models\" />
+    <Folder Include="Areas\SupportStaff\Views\" />
+  </ItemGroup>
+
 </Project>
