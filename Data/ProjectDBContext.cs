@@ -15,6 +15,7 @@ namespace Mist452FinalProject.Data
 
         public DbSet<Survey> Surveys { get; set; }   //corresponds to the swl table that will be created in the database. Each row in this table will be a category. ANd the table will be called Categories 
 
+        public DbSet<Game> Games { get; set; }
 
 
 
@@ -23,6 +24,7 @@ namespace Mist452FinalProject.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Survey>().HasData(
                 new Survey
                 {
@@ -30,7 +32,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Alex Smith",
                     Email = "alex.smith@example.com",
                     Age = 30,
-                    TeamSatisfaction = 5,
+                    TeamSatisfaction = TeamSatisfaction.VerySatisfied, // Use enum value
                     FavoritePlayer = "Player A",
                     LeastFavoritePlayer = "Player B",
                     FavoriteMatch = "Match 1",
@@ -43,7 +45,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Jamie Doe",
                     Email = "jamie.doe@example.com",
                     Age = 25,
-                    TeamSatisfaction = 4,
+                    TeamSatisfaction = TeamSatisfaction.Satisfied, // Use enum value
                     FavoritePlayer = "Player C",
                     LeastFavoritePlayer = "Player D",
                     FavoriteMatch = "Match 3",
@@ -56,7 +58,7 @@ namespace Mist452FinalProject.Data
                     ParticipantName = "Chris Lee",
                     Email = "chris.lee@example.com",
                     Age = 28,
-                    TeamSatisfaction = 3,
+                    TeamSatisfaction = TeamSatisfaction.Neutral, // Use enum value
                     FavoritePlayer = "Player E",
                     LeastFavoritePlayer = "Player F",
                     FavoriteMatch = "Match 5",
@@ -64,8 +66,66 @@ namespace Mist452FinalProject.Data
                     IsInterestedInVolunteering = true
                 }
             );
+        }
+
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity<Game>().HasData(
+
+
+                new Game
+                {
+                    GameID = 1,
+                    gameDate = "3/27/24",
+                    opponent = "Louisville",
+                    score = "2-1",
+                    posessionStat = 60 - 30,
+                    shotsStat = 14 - 10,
+                    SavesStat = 9 - 12,
+                    foulsStat = 15 - 8,
+                    filmURL = "blank",
+
+                },
+
+
+
+                new Game
+                {
+                    GameID = 2,
+                    gameDate = "3/29/24",
+                    opponent = "Pittsburgh",
+                    score = "4-1",
+                    posessionStat = 55 - 35,
+                    shotsStat = 19 - 10,
+                    SavesStat = 9 - 15,
+                    foulsStat = 12 - 9,
+                    filmURL = "blank",
+
+                },
+
+
+
+                new Game
+                {
+                    GameID = 3,
+                    gameDate = "4/2/24",
+                    opponent = "Penn State",
+                    score = "3-2",
+                    posessionStat = 48 - 42,
+                    shotsStat = 14 - 11,
+                    SavesStat = 9 - 11,
+                    foulsStat = 7 - 5,
+                    filmURL = "blank",
+
+                }
+
+
+
+                ); 
 
             // Configure other entities
         } }
+>>>>>>> 87dca20a2eeee58c489a4729e7815f05c7f2ad64
 
+    }
 }

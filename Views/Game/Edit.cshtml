@@ -1,0 +1,50 @@
+﻿@model Game
+
+<h1>Update Game</h1>
+
+<div class=" border col-md-10">
+    <form asp-action="Edit">
+        <div class="form-group m-4">
+            <label asp-for="gameDate" class="control-label"></label>
+            <input asp-for="gameDate" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="opponent" class="control-label"></label>
+            <input asp-for="opponent" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="score" class="control-label"></label>
+            <input asp-for="score" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="posessionStat" class="control-label"></label>
+            <input asp-for="posessionStat" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="shotsStat" class="control-label"></label>
+            <input asp-for="shotsStat" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="SavesStat" class="control-label"></label>
+            <input asp-for="SavesStat" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="foulsStat" class="control-label"></label>
+            <input asp-for="foulsStat" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="filmURL" class="control-label"></label>
+            <input asp-for="filmURL" class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <input type="Submit" value="Save Changes" class="form-control btn btn-primary" />
+        </div>
+    </form>

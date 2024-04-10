@@ -1,0 +1,88 @@
+﻿@model Mist452FinalProject.Models.Survey
+
+@{
+    ViewData["Title"] = "Create Survey";
+}
+
+<h2>@ViewData["Title"]]</h2>
+<h4>Survey</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ParticipantName" class="control-label"></label>
+                <input asp-for="ParticipantName" class="form-control" />
+                <span asp-validation-for="ParticipantName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeamSatisfaction" class="control-label"></label>
+                <select asp-for="TeamSatisfaction" class="form-control" asp-items="Html.GetEnumSelectList<TeamSatisfaction>()">
+                    <option>Please select one</option>
+                </select>
+                <span asp-validation-for="TeamSatisfaction" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FavoritePlayer" class="control-label"></label>
+                <input asp-for="FavoritePlayer" class="form-control" />
+                <span asp-validation-for="FavoritePlayer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LeastFavoritePlayer" class="control-label"></label>
+                <input asp-for="LeastFavoritePlayer" class="form-control" />
+                <span asp-validation-for="LeastFavoritePlayer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FavoriteMatch" class="control-label"></label>
+                <input asp-for="FavoriteMatch" class="form-control" />
+                <span asp-validation-for="FavoriteMatch" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SuggestionsForImprovement" class="control-label"></label>
+                <textarea asp-for="SuggestionsForImprovement" class="form-control"></textarea>
+                <span asp-validation-for="SuggestionsForImprovement" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="IsInterestedInVolunteering" class="form-check-input" />
+                    <label asp-for="IsInterestedInVolunteering" class="form-check-label"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
