@@ -1,0 +1,62 @@
+﻿@model Mist452FinalProject.Models.Game
+
+<h2>Delete Game</h2>
+<h4>Are you sure you want to delete this game?</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.gameDate)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.gameDate)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.opponent)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.opponent)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.score)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.score)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.posessionStat)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.posessionStat)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.shotsStat)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.shotsStat)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.SavesStat)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.SavesStat)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.foulsStat)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.foulsStat)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.filmURL)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.filmURL)
+    </dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="GameID" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>
