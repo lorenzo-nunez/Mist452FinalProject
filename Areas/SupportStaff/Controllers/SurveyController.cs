@@ -4,8 +4,9 @@ using Mist452FinalProject.Data;
 using Mist452FinalProject.Models;
 using System.Diagnostics;
 
-namespace Mist452FinalProject.Controllers
+namespace Mist452FinalProject.Areas.SupportStaff.Controllers
 {
+    [Area("SupportStaff")]
     public class SurveysController : Controller
     {
         private readonly ProjectDBContext _context;

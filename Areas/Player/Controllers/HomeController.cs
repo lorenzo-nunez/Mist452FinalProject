@@ -5,8 +5,9 @@ using Mist452FinalProject.Data;
 using Mist452FinalProject.Models;
 using System.Diagnostics;
 
-namespace Mist452FinalProject.Controllers
+namespace Mist452FinalProject.Areas.Player.Controllers
 {
+    [Area("Player")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -55,7 +56,7 @@ namespace Mist452FinalProject.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+
 
     }
 }
