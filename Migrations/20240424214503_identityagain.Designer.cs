@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mist452FinalProject.Data;
 
@@ -11,9 +12,11 @@ using Mist452FinalProject.Data;
 namespace Mist452FinalProject.Migrations
 {
     [DbContext(typeof(ProjectDBContext))]
-    partial class ProjectDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240424214503_identityagain")]
+    partial class identityagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

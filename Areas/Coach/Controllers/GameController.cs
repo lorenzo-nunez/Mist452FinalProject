@@ -6,8 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mist452FinalProject.Controllers
+namespace Mist452FinalProject.Areas.Coach.Controllers
 {
+    [Area("Coach")]
     public class GameController : Controller
     {
         private readonly ProjectDBContext _dbContext;

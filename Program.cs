@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Mist452FinalProject.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Mist452FinalProject
 {
@@ -17,6 +18,8 @@ namespace Mist452FinalProject
             // 2) Add the context class to the set of services and define the option to use sql server on that connection string has been fetched in the previous step 
             builder.Services.AddDbContext<ProjectDBContext>(options => options.UseSqlServer(connString));
 
+            builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ProjectDBContext>();
+            builder.Services.AddRazorPages();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -28,11 +31,12 @@ namespace Mist452FinalProject
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{Area=Player}/{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
