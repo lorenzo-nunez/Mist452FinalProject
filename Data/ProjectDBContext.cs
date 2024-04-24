@@ -66,7 +66,44 @@ namespace Mist452FinalProject.Data
                     IsInterestedInVolunteering = true
                 }
             );
-
+            modelBuilder.Entity<Game>().HasData(
+       new Game
+       {
+           GameID = 1,
+           gameDate = "2023-04-10",
+           opponent = "Team A",
+           score = "2-1",
+           posessionStat = 54,
+           shotsStat = 15,
+           SavesStat = 5,
+           foulsStat = 8,
+           filmURL = "http://example.com/game1film"
+       },
+       new Game
+       {
+           GameID = 2,
+           gameDate = "2023-04-17",
+           opponent = "Team B",
+           score = "1-1",
+           posessionStat = 60,
+           shotsStat = 20,
+           SavesStat = 7,
+           foulsStat = 11,
+           filmURL = "http://example.com/game2film"
+       },
+       new Game
+       {
+           GameID = 3,
+           gameDate = "2023-04-24",
+           opponent = "Team C",
+           score = "0-3",
+           posessionStat = 48,
+           shotsStat = 12,
+           SavesStat = 3,
+           foulsStat = 14,
+           filmURL = "http://example.com/game3film"
+       }
+   );
 
         }
     }

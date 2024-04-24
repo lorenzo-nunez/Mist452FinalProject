@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mist452FinalProject.Data;
 
@@ -11,9 +12,11 @@ using Mist452FinalProject.Data;
 namespace Mist452FinalProject.Migrations
 {
     [DbContext(typeof(ProjectDBContext))]
-    partial class ProjectDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240416154251_gamestatseeddata")]
+    partial class gamestatseeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,6 +221,85 @@ namespace Mist452FinalProject.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Mist452FinalProject.Models.Game", b =>
+                {
+                    b.Property<int>("GameID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GameID"));
+
+                    b.Property<int>("SavesStat")
+                        .HasColumnType("int");
+
+                    b.Property<string>("filmURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("foulsStat")
+                        .HasColumnType("int");
+
+                    b.Property<string>("gameDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("opponent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("posessionStat")
+                        .HasColumnType("int");
+
+                    b.Property<string>("score")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("shotsStat")
+                        .HasColumnType("int");
+
+                    b.HasKey("GameID");
+
+                    b.ToTable("Games");
+
+                    b.HasData(
+                        new
+                        {
+                            GameID = 1,
+                            SavesStat = 5,
+                            filmURL = "http://example.com/game1film",
+                            foulsStat = 8,
+                            gameDate = "2023-04-10",
+                            opponent = "Team A",
+                            posessionStat = 54,
+                            score = "2-1",
+                            shotsStat = 15
+                        },
+                        new
+                        {
+                            GameID = 2,
+                            SavesStat = 7,
+                            filmURL = "http://example.com/game2film",
+                            foulsStat = 11,
+                            gameDate = "2023-04-17",
+                            opponent = "Team B",
+                            posessionStat = 60,
+                            score = "1-1",
+                            shotsStat = 20
+                        },
+                        new
+                        {
+                            GameID = 3,
+                            SavesStat = 3,
+                            filmURL = "http://example.com/game3film",
+                            foulsStat = 14,
+                            gameDate = "2023-04-24",
+                            opponent = "Team C",
+                            posessionStat = 48,
+                            score = "0-3",
+                            shotsStat = 12
+                        });
                 });
 
             modelBuilder.Entity("Mist452FinalProject.Models.Survey", b =>
