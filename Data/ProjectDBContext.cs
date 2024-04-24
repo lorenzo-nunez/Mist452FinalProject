@@ -105,5 +105,6 @@ namespace Mist452FinalProject.Data
        }
    );
 
+        }
     }
 }
