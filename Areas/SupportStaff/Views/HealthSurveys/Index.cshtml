@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Mist452FinalProject.Models.HealthSurvey>
+
+@{
+    ViewData["Title"] = "Health Survey List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Participant Name</th>
+                <th>Age</th>
+                <th>Appointment Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var survey in Model)
+            {
+                <tr>
+                    <td>@survey.ParticipantName</td>
+                    <td>@survey.Age</td>
+                    <td>@survey.AppointmentDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@survey.HSurveyId" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Edit" asp-route-id="@survey.HSurveyId" class="btn btn-primary btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@survey.HSurveyId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

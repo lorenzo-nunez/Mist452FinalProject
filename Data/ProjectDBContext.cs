@@ -17,6 +17,8 @@ namespace Mist452FinalProject.Data
 
         public DbSet<Game> Games { get; set; }
 
+        public DbSet<HealthSurvey> HealthSurveys { get; set; }
+
 
 
 
@@ -103,7 +105,34 @@ namespace Mist452FinalProject.Data
            foulsStat = 14,
            filmURL = "http://example.com/game3film"
        }
+      
    );
+            modelBuilder.Entity<HealthSurvey>().HasData(
+               new HealthSurvey
+               {
+                   HSurveyId = 1,
+                   ParticipantName = "John Doe",
+                   Weight = 185,
+                   HeightFeet = 5,
+                   HeightInches = 10,
+                   Age = 34,
+                   AppointmentDate = new DateTime(2023, 12, 15),  // Future date for appointment
+                   ReasonForCheckUp = "Annual Physical",
+                   IsSmoker = false
+               },
+               new HealthSurvey
+               {
+                   HSurveyId = 2,
+                   ParticipantName = "Jane Smith",
+                   Weight = 150,
+                   HeightFeet = 5,
+                   HeightInches = 5,
+                   Age = 29,
+                   AppointmentDate = new DateTime(2023, 12, 20),  // Future date for appointment
+                   ReasonForCheckUp = "General Consultation",
+                   IsSmoker = true
+               }
+           );
 
         }
     }

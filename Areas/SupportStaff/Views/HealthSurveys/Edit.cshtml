@@ -1,0 +1,60 @@
+﻿@model Mist452FinalProject.Models.HealthSurvey
+
+@{
+    ViewData["Title"] = "Edit Health Survey";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="HSurveyId" />
+
+        <div class="form-group">
+            <label asp-for="ParticipantName" class="control-label">Participant Name</label>
+            <input asp-for="ParticipantName" class="form-control" />
+            <span asp-validation-for="ParticipantName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Weight" class="control-label">Weight (lbs)</label>
+            <input asp-for="Weight" class="form-control" />
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="HeightFeet" class="control-label">Height (Feet)</label>
+            <input asp-for="HeightFeet" class="form-control" />
+            <span asp-validation-for="HeightFeet" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="HeightInches" class="control-label">Height (Inches)</label>
+            <input asp-for="HeightInches" class="form-control" />
+            <span asp-validation-for="HeightInches" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Age" class="control-label">Age</label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AppointmentDate" class="control-label">Appointment Date</label>
+            <input type="date" asp-for="AppointmentDate" class="form-control" />
+            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ReasonForCheckUp" class="control-label">Reason for Check-Up</label>
+            <textarea asp-for="ReasonForCheckUp" class="form-control"></textarea>
+            <span asp-validation-for="ReasonForCheckUp" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" asp-for="IsSmoker" class="form-check-input" />
+            <label asp-for="IsSmoker" class="form-check-label">Smoking Status</label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </div>
+    </form>
+</div>
+
