@@ -17,7 +17,11 @@ namespace Mist452FinalProject.Data
 
         public DbSet<Game> Games { get; set; }
 
-        //public DbSet<HealthSurvey> HealthSurveys { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public DbSet<HealthSurvey> HealthSurveys { get; set; }
+
 
 
 

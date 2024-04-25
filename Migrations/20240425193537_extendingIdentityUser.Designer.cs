@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mist452FinalProject.Data;
 
@@ -11,9 +12,11 @@ using Mist452FinalProject.Data;
 namespace Mist452FinalProject.Migrations
 {
     [DbContext(typeof(ProjectDBContext))]
-    partial class ProjectDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240425193537_extendingIdentityUser")]
+    partial class extendingIdentityUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,71 +312,6 @@ namespace Mist452FinalProject.Migrations
                             posessionStat = 48,
                             score = "0-3",
                             shotsStat = 12
-                        });
-                });
-
-            modelBuilder.Entity("Mist452FinalProject.Models.HealthSurvey", b =>
-                {
-                    b.Property<int>("HSurveyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HSurveyId"));
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("AppointmentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HeightFeet")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HeightInches")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsSmoker")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ParticipantName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReasonForCheckUp")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
-
-                    b.HasKey("HSurveyId");
-
-                    b.ToTable("HealthSurveys");
-
-                    b.HasData(
-                        new
-                        {
-                            HSurveyId = 1,
-                            Age = 34,
-                            AppointmentDate = new DateTime(2023, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HeightFeet = 5,
-                            HeightInches = 10,
-                            IsSmoker = false,
-                            ParticipantName = "John Doe",
-                            ReasonForCheckUp = "Annual Physical",
-                            Weight = 185
-                        },
-                        new
-                        {
-                            HSurveyId = 2,
-                            Age = 29,
-                            AppointmentDate = new DateTime(2023, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HeightFeet = 5,
-                            HeightInches = 5,
-                            IsSmoker = true,
-                            ParticipantName = "Jane Smith",
-                            ReasonForCheckUp = "General Consultation",
-                            Weight = 150
                         });
                 });
 
