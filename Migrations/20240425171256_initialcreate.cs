@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Mist452FinalProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,26 @@ namespace Mist452FinalProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Games",
+                columns: table => new
+                {
+                    GameID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    gameDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    opponent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    score = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    posessionStat = table.Column<int>(type: "int", nullable: false),
+                    shotsStat = table.Column<int>(type: "int", nullable: false),
+                    SavesStat = table.Column<int>(type: "int", nullable: false),
+                    foulsStat = table.Column<int>(type: "int", nullable: false),
+                    filmURL = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Games", x => x.GameID);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,8 +139,8 @@ namespace Mist452FinalProject.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -164,8 +184,8 @@ namespace Mist452FinalProject.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -177,6 +197,16 @@ namespace Mist452FinalProject.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Games",
+                columns: new[] { "GameID", "SavesStat", "filmURL", "foulsStat", "gameDate", "opponent", "posessionStat", "score", "shotsStat" },
+                values: new object[,]
+                {
+                    { 1, 5, "http://example.com/game1film", 8, "2023-04-10", "Team A", 54, "2-1", 15 },
+                    { 2, 7, "http://example.com/game2film", 11, "2023-04-17", "Team B", 60, "1-1", 20 },
+                    { 3, 3, "http://example.com/game3film", 14, "2023-04-24", "Team C", 48, "0-3", 12 }
                 });
 
             migrationBuilder.InsertData(
@@ -246,6 +276,9 @@ namespace Mist452FinalProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Games");
 
             migrationBuilder.DropTable(
                 name: "Surveys");
