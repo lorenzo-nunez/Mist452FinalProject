@@ -1,40 +1,48 @@
 ﻿@model List<Game>
 
-<h1 class="text-center">Welcmoe to the WVU Men's Soccer Management System</h1>
+@{
+    ViewData["Title"] = "WVU Men's Soccer Management System";
+}
 
-<h4 class="text-center">Games</h4>
-<div class="container mt-3 mb-3">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Game Date</th>
-                <th>Opponent</th>
-                <th>Score</th>
-                <th>Possession</th>
-                <th>Shots</th>
-                <th>Saves</th>
-                <th>Fouls</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var game in Model)
-            {
+<header class="bg-success text-white text-center py-3 mb-4">
+    <h1>Welcome to the WVU Men's Soccer Management System</h1>
+</header>
+
+<div class="container mt-4">
+    <h4 class="text-center mb-6">|Games|</h4>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-success">
                 <tr>
-                    <td>@game.gameDate</td>
-                    <td>@game.opponent</td>
-                    <td>@game.score</td>
-                    <td>@game.posessionStat</td>
-                    <td>@game.shotsStat</td>
-                    <td>@game.SavesStat</td>
-                    <td>@game.foulsStat</td>
-                   
+                    <th>Game Date</th>
+                    <th>Opponent</th>
+                    <th>Score</th>
+                    <th>Possession (%)</th>
+                    <th>Shots</th>
+                    <th>Saves</th>
+                    <th>Fouls</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <h4 class="text-center">Surveys</h4>
-    <p class="text-center"><a asp-controller="Home" asp-action="Create" class="btn btn-primary">Submit a Survey</a></p>
+            </thead>
+            <tbody>
+                @foreach (var game in Model)
+                {
+                    <tr>
+                        <td>@game.gameDate</td>
+                        <td>@game.opponent</td>
+                        <td>@game.score</td>
+                        <td>@game.posessionStat</td>
+                        <td>@game.shotsStat</td>
+                        <td>@game.SavesStat</td>
+                        <td>@game.foulsStat</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-    
+    <h4 class="text-center mt-6">|Surveys|</h4>
+    <div class="text-center mt-2 mb-4">
+        <a asp-controller="Home" asp-action="CreateInfo" class="btn btn-success btn-lg">Take Info Survey</a>
+        <a asp-controller="Home" asp-action="CreateHealth" class="btn btn-success btn-lg">Take Health Survey</a>
+    </div>
 </div>

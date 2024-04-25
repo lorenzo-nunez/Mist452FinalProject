@@ -1,0 +1,33 @@
+﻿@model Mist452FinalProject.Models.HealthSurvey
+
+@{
+    ViewData["Title"] = "Health Survey Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    <dl class="row">
+        <dt class="col-sm-3">Participant Name</dt>
+        <dd class="col-sm-9">@Model.ParticipantName</dd>
+
+        <dt class="col-sm-3">Weight</dt>
+        <dd class="col-sm-9">@Model.Weight lbs</dd>
+
+        <dt class="col-sm-3">Height</dt>
+        <dd class="col-sm-9">@Model.HeightFeet ft @Model.HeightInches inches</dd>
+
+        <dt class="col-sm-3">Age</dt>
+        <dd class="col-sm-9">@Model.Age</dd>
+
+        <dt class="col-sm-3">Appointment Date</dt>
+        <dd class="col-sm-9">@Model.AppointmentDate.ToString("d")</dd>
+
+        <dt class="col-sm-3">Reason for Check-Up</dt>
+        <dd class="col-sm-9">@Model.ReasonForCheckUp</dd>
+
+        <dt class="col-sm-3">Smoking Status</dt>
+        <dd class="col-sm-9">@Model.IsSmoker</dd>
+    </dl>
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</div>
