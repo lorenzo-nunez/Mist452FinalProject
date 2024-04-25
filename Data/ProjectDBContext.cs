@@ -19,6 +19,8 @@ namespace Mist452FinalProject.Data
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
+        public DbSet<HealthSurvey> HealthSurveys { get; set; }
+
 
 
 
