@@ -1,4 +1,8 @@
-﻿@model List<Game>
+﻿@model List<Mist452FinalProject.Models.Game>
+
+@{
+    ViewData["Title"] = "Game List";
+}
 
 <h1 class="text-center">Game List</h1>
 
@@ -14,6 +18,7 @@
                 <th>Saves</th>
                 <th>Fouls</th>
                 <th>Actions</th>
+                <th>Film</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +35,16 @@
                     <td>
                         <a asp-action="Edit" asp-route-id="@game.GameID" class="btn btn-info">Edit</a>
                         <a asp-action="Delete" asp-route-id="@game.GameID" class="btn btn-danger">Delete</a>
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(game.filmURL))
+                        {
+                            <a href="@game.filmURL" target="_blank" class="btn btn-secondary">Watch Film</a>
+                        }
+                        else
+                        {
+                            <text>No Film Available</text>
+                        }
                     </td>
                 </tr>
             }
