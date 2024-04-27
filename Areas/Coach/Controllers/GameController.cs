@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Mist452FinalProject.Areas.Coach.Controllers
 {
     [Area("Coach")]
-    
+    [Authorize(Roles = "Coach")]
     public class GameController : Controller
     {
         private readonly ProjectDBContext _dbContext;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mist452FinalProject.Data;
 using Mist452FinalProject.Models;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 namespace Mist452FinalProject.Areas.SupportStaff.Controllers
 {
     [Area("SupportStaff")]
+    [Authorize(Roles = "SupportStaff")]
     public class HealthSurveysController : Controller
     {
         private readonly ProjectDBContext _dbContext;
@@ -91,10 +93,15 @@ namespace Mist452FinalProject.Areas.SupportStaff.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var healthSurvey = await _dbContext.HealthSurveys.FindAsync(id);
-            _dbContext.HealthSurveys.Remove(healthSurvey);
-            await _dbContext.SaveChangesAsync();
+            if (healthSurvey != null)
+            {
+                _dbContext.HealthSurveys.Remove(healthSurvey);
+                await _dbContext.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }
 

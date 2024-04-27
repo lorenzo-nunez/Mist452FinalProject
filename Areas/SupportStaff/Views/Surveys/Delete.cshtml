@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <form asp-action="DeleteConfirmed" asp-route-id="@Model.SurveyId" method="post" class="mt-4">
+    <form asp-action="Delete" asp-route-id="@Model.SurveyId" method="post" class="mt-4">
         <input type="hidden" asp-for="SurveyId" />
         <button type="submit" class="btn btn-danger">Confirm Delete</button>
         <a asp-action="Index" class="btn btn-secondary">Cancel</a>

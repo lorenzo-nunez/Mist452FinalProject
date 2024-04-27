@@ -1,54 +1,67 @@
 ﻿@model Mist452FinalProject.Models.HealthSurvey
 
 @{
-    ViewData["Title"] = "Create Health Survey";
+    ViewData["Title"] = "Take Health Survey";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="mb-4 text-center">@ViewData["Title"]</h1>
 
-<form asp-action="CreateHealth" method="post">
-    @Html.AntiForgeryToken()
+<div class="container">
+    <form asp-action="CreateHealth" method="post" class="needs-validation" novalidate>
+        @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        <label asp-for="ParticipantName" class="control-label"></label>
-        <input asp-for="ParticipantName" class="form-control" />
-        <span asp-validation-for="ParticipantName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Weight" class="control-label"></label>
-        <input asp-for="Weight" class="form-control" />
-        <span asp-validation-for="Weight" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="HeightFeet" class="control-label"></label>
-        <input asp-for="HeightFeet" class="form-control" />
-        <span asp-validation-for="HeightFeet" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="HeightInches" class="control-label"></label>
-        <input asp-for="HeightInches" class="form-control" />
-        <span asp-validation-for="HeightInches" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Age" class="control-label"></label>
-        <input asp-for="Age" class="form-control" />
-        <span asp-validation-for="Age" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="AppointmentDate" class="control-label"></label>
-        <input type="date" asp-for="AppointmentDate" class="form-control" />
-        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ReasonForCheckUp" class="control-label"></label>
-        <textarea asp-for="ReasonForCheckUp" class="form-control"></textarea>
-        <span asp-validation-for="ReasonForCheckUp" class="text-danger"></span>
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" asp-for="IsSmoker" class="form-check-input" />
-        <label asp-for="IsSmoker" class="form-check-label">Smoker?</label>
-    </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="ParticipantName" class="form-label">Participant Name</label>
+                <input asp-for="ParticipantName" class="form-control" />
+                <span asp-validation-for="ParticipantName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Weight" class="form-label">Weight (lbs)</label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="HeightFeet" class="form-label">Height (Feet)</label>
+                <input asp-for="HeightFeet" class="form-control" />
+                <span asp-validation-for="HeightFeet" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="HeightInches" class="form-label">Height (Inches)</label>
+                <input asp-for="HeightInches" class="form-control" />
+                <span asp-validation-for="HeightInches" class="text-danger"></span>
+            </div>
+        </div>
 
+        <div class="mb-3">
+            <label asp-for="Age" class="form-label">Age</label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AppointmentDate" class="form-label">Appointment Date</label>
+            <input type="date" asp-for="AppointmentDate" class="form-control" />
+            <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ReasonForCheckUp" class="form-label">Reason for Check-Up</label>
+            <textarea asp-for="ReasonForCheckUp" class="form-control"></textarea>
+            <span asp-validation-for="ReasonForCheckUp" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check mb-3">
+            <input type="checkbox" asp-for="IsSmoker" class="form-check-input" />
+            <label asp-for="IsSmoker" class="form-check-label">Smoker?</label>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </form>
+</div>

@@ -24,10 +24,11 @@
         <dt class="col-sm-3">Smoking Status</dt>
         <dd class="col-sm-9">@Model.IsSmoker ? "Yes" : "No"</dd>
     </dl>
-    <form asp-action="DeleteConfirmed" method="post">
+    <form asp-action="Delete" method="post">
         @Html.AntiForgeryToken()
         <input type="hidden" asp-for="HSurveyId" />
         <button type="submit" class="btn btn-danger">Delete</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <!-- Correctly use the Url.Action helper to redirect to the Index action -->
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
