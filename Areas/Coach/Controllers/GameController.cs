@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mist452FinalProject.Data;
 using Mist452FinalProject.Models;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace Mist452FinalProject.Areas.Coach.Controllers
 {
     [Area("Coach")]
+    
     public class GameController : Controller
     {
         private readonly ProjectDBContext _dbContext;
